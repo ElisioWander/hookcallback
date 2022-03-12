@@ -1,7 +1,11 @@
+import { memo } from 'react'
+
 interface ItemProps {
     title: string;
 }
 
-export function Item(props: ItemProps) {
+function ItemComponent(props: ItemProps) {
     return <li>{props.title}</li>
 }
+
+export const Item = memo(ItemComponent)
