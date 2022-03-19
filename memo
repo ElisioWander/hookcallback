@@ -1,0 +1,49 @@
+<-----> memo <----->
+
+**Quando usar?**
+
+1 - Pure Function Components
+//Funções que não terão suas propriedades e nem estados alterados
+
+2 - Render too often
+//Funções que estão renderizando muitas vezes.
+
+//Controlled component: um input, por exemplo, que tenha seu estado alterado
+//todas as vezes que o usuário digita algo.
+
+3 - Re-render with the same props
+//Renderizando muitas vezes e utilizando as mesmas propriedades.
+
+//Lembrando que um component que renderiza várias vezes mas tem suas
+//propriedades alteradas, não faz sentido usar o memo.
+
+4 - Medium to beg sizes
+//Components que tenham um tamanho médio para grande.
+
+//Usar o memo em um component pequeno pode causar gargalo de performace
+//porque pode ser mais custoso fazer o processo de comparação do memo do que 
+//o processo de renderização do react
+
+<-----> useMemo <----->
+
+**Quando Usar?**
+
+//Evitar que determinado calculo COMPLEXO seja refeito várias vezes, ou não, sem que
+//haja necessidade.
+
+//As vezes, se o useMemo for utilizado de forma deliberada, em funções que não detem de uma
+//certa complexidade de calculos, pode acabar sendo pior do que deixar o próprio React renderizar
+//aquela função novamente.
+
+//Também pode ser usado para resolver problemas de igualdade referencial
+
+<-----> useCallback <----->
+
+**Quando Usar?**
+
+//Quando houver problemas de igualdade referencial
+
+//Somente irá usar o useCallback em funções que estiverem sendo repassadas para outros
+//componentes, ou funções de um contexto em que mais de um componente acessa a mesma função.
+
+//Uma função que está dentro de apenas um compoente, não faz sentido usar o useCallback.
